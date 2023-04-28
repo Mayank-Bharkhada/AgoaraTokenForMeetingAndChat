@@ -100,6 +100,7 @@ app.post('/register_token', async (req, res) => {
 
     const body = {'username': userName, 'password': chatPassword, 'nickname': ChatNickname};
     const appToken = ChatTokenBuilder.buildAppToken(appIdForChat, appCertificateForChat, expirationInSeconds);
+    try {
     const response = await fetch(chatRegisterURL , {
       method: 'post',
       headers: {
@@ -115,8 +116,9 @@ app.post('/register_token', async (req, res) => {
     }
 
     console.log(result);
-    try {
+    
     res.json({
+        "success" : true,
         "userName": userName,
         "password": chatPassword,
         "chatUsername": ChatNickname,
