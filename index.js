@@ -5,6 +5,7 @@ const bodyParser = require('body-parser');
 const app = express();
 const {RtcTokenBuilder, RtmTokenBuilder, RtcRole, RtmRole} = require('agora-access-token')
 const agoraToken = require('agora-token');
+const port = process.env.PORT;
 
 const { ChatTokenBuilder } = agoraToken;
 
@@ -136,6 +137,6 @@ app.post('/register_token', async (req, res) => {
 
 
 
-app.listen(3000, () => {
+app.listen(port, () => {
   console.log('Server running on port 3000');
 });
