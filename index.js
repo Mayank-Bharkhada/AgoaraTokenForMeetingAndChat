@@ -1,6 +1,4 @@
 const express = require('express');
-// const { encode } = require('base-64');
-const axios = require('axios');
 const bodyParser = require('body-parser');
 const app = express();
 const {RtcTokenBuilder, RtmTokenBuilder, RtcRole, RtmRole} = require('agora-access-token')
@@ -19,15 +17,15 @@ app.use(bodyParser.json());
 
 
 
-app.get('/access_token_for_Meeeting', (req, res) => {
+app.post('/access_token_for_Meeeting', (req, res) => {
     // res.header("Acess-Control-Allow-Origin", "*");
-    const ChannelName = req.query.ChannelName;
+    const ChannelName = req.body.ChannelName;
     if(!ChannelName){
         return res.status(500).json("Error no chanal name");
 
     }
 
-    let uid = req.query.uid;
+    let uid = req.body.uid;
     
     if(!uid || uid == ''){
         uid= 0;
@@ -35,7 +33,7 @@ app.get('/access_token_for_Meeeting', (req, res) => {
     
 
     let role = RtcRole.SUBSCRIBER;  
-    if(req.query.role == 'publisher'){
+    if(req.body.role == 'publisher'){
         role = RtcRole.PUBLISHER;
     }
 
@@ -55,7 +53,6 @@ app.get('/access_token_for_Meeeting', (req, res) => {
     return res.json({'token' : token});
 }
 )
-
 
 // Get the appId and appCertificate from the agora console
 const appIdForChat = "f9d18293a9c7422a9f477cc19808ba55";
