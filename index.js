@@ -8,8 +8,8 @@ const port = process.env.PORT;
 const { ChatTokenBuilder } = agoraToken;
 
 
-const appIdForConferance = 'f9d18293a9c7422a9f477cc19808ba55';
-const appCertificateForConferance = '182e399681f94b659e2ebc230af9582d';
+const appIdForConferance = '3b0b38080efd46a28c8b75387c66e8ff';
+const appCertificateForConferance = '519bb07086534c219a44dfb8e9fa2809';
 
 
 // app.use(cors())
