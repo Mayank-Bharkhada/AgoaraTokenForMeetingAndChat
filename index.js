@@ -39,7 +39,7 @@ app.post('/access_token_for_Meeeting', (req, res) => {
 
     // let expireTime = req.query.expireTime;
     // if(!expireTime || expireTime == ''){
-        expireTime= 86400;
+        expireTime= 86400 * 30 ;
     // }else{
     //     expireTime = parseInt(expireTime, 10);
     // }
@@ -58,7 +58,7 @@ app.post('/access_token_for_Meeeting', (req, res) => {
 const appIdForChat = "f9d18293a9c7422a9f477cc19808ba55";
 const appCertificateForChat = "182e399681f94b659e2ebc230af9582d";
 // Token expire time, hardcode to 86400 seconds = 1 day
-const expirationInSeconds = 86400;
+const expirationInSeconds = 86400 * 30;
 
 
 
